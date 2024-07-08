@@ -8,7 +8,7 @@ export default function Home() {
       <section className="w-full bg-background py-12">
         <div className="container grid items-center gap-6 px-4 md:px-6 lg:grid-cols-2 lg:gap-10">
           <Image
-            src="/img/flower1.jpg"
+            src="/img/pinkclock.jpg"
             width={550}
             height={550}
             alt="Preserved Flower"

@@ -10,8 +10,14 @@ export default function Footer() {
           <FlowerIcon />
         </div>
         <div className="mt-4 flex space-x-1 sm:mt-0">
-          <span className="font-bold text-[#333]">Instagram</span>
-          <InstagramIcon className="h-6 w-6" />
+          <Link
+            href="https://www.instagram.com/cattleya_yozakura/"
+            className="text-[#ff6b6b] hover:text-[#e04848] flex gap-2"
+            prefetch={false}
+          >
+            <span className="font-bold text-[#333]">Instagram</span>
+            <InstagramIcon className="h-6 w-6" />
+          </Link>
         </div>
       </div>
     </footer>

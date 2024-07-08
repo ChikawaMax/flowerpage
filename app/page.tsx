@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -20,13 +21,11 @@ export default function Home() {
             <p className="text-muted-foreground md:text-xl">
               オーダーメイド受け付けてます。
             </p>
-            <Link
-              href="#"
-              className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-              prefetch={false}
-            >
-              作品集
-            </Link>
+            <Button>
+              <Link href="/portfolio" className="px-5">
+                作品集
+              </Link>
+            </Button>
           </div>
         </div>
       </section>

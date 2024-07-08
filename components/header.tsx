@@ -31,7 +31,7 @@ export const Header = () => {
                   <Link
                     href={Header.link}
                     prefetch={false}
-                    className="font-bold hover:border-b  text-2xl	"
+                    className="font-bold hover:border-b  text-2xl"
                   >
                     {Header.title}
                   </Link>

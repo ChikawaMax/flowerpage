@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -31,6 +30,7 @@ export const Contactform = () => {
   const [isSending, setIsSending] = useState(false);
 
   const form = useForm<formType>({
+    mode: 'onChange',
     resolver: zodResolver(formShema),
     defaultValues: {
       name: '',
@@ -88,9 +88,12 @@ export const Contactform = () => {
                 <FormItem>
                   <FormLabel>名前</FormLabel>
                   <FormControl>
-                    <Input placeholder="name" {...field} disabled={isSending} />
+                    <Input
+                      placeholder="お名前をお書きください。"
+                      {...field}
+                      disabled={isSending}
+                    />
                   </FormControl>
-                  <FormDescription>お名前をお書きください。</FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
@@ -103,14 +106,11 @@ export const Contactform = () => {
                   <FormLabel>メールアドレス</FormLabel>
                   <FormControl>
                     <Input
-                      placeholder="example@gmail.com"
+                      placeholder="メールアドレスをお書きください。"
                       {...field}
                       disabled={isSending}
                     />
                   </FormControl>
-                  <FormDescription>
-                    メールアドレスをお書きください。
-                  </FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
@@ -129,9 +129,6 @@ export const Contactform = () => {
                       disabled={isSending}
                     />
                   </FormControl>
-                  <FormDescription>
-                    お問い合わせ内容をお書きください。
-                  </FormDescription>
                   <FormMessage />
                 </FormItem>
               )}

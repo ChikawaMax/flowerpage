@@ -19,7 +19,7 @@ export const Header = () => {
       //   background: 'url(/img/blueclock2.jpg) no-repeat center center',
       //   backgroundSize: 'cover',
       // }}
-      className="flex h-20 items-center px-4 md:px-6 justify-between bg-primary"
+      className="flex h-20 items-center px-4 md:px-6 justify-between bg-[#ffe6fb]"
     >
       <FlowerIcon />
       <div className="flex-auto flex items-center justify-center">

@@ -4,7 +4,7 @@ import { InstagramIcon } from './icon/InstagramIcon';
 
 export default function Footer() {
   return (
-    <footer className="bg-primary py-8 px-4 sm:px-6 lg:px-8">
+    <footer className="bg-[#ffe6fb] py-8 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto flex flex-col items-center justify-between sm:flex-row">
         <div className="flex items-center">
           <FlowerIcon />

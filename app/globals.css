@@ -43,3 +43,8 @@
     @apply bg-background text-foreground;
   }
 }
+
+@font-face {
+  font-family: Alice;
+  src: url(..//public/font/Alice-Regular.ttf);
+}

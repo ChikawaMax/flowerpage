@@ -22,6 +22,7 @@ export const Header = () => {
       className="flex h-20 items-center px-4 md:px-6 justify-between bg-[#ffe6fb]"
     >
       <FlowerIcon />
+      <span className="ml-3">Cattleya＊夜桜</span>
       <div className="flex-auto flex items-center justify-center">
         <NavigationMenu>
           <NavigationMenuList className="gap-5">
@@ -41,6 +42,7 @@ export const Header = () => {
           </NavigationMenuList>
         </NavigationMenu>
       </div>
+      <div className="w-16"></div>
     </header>
   );
 };

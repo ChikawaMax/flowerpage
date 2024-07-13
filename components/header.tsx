@@ -5,7 +5,6 @@ import {
   NavigationMenuLink,
 } from '@/components/ui/navigation-menu';
 import { FlowerIcon } from './icon/flowerIcon';
-import { text } from 'stream/consumers';
 
 export const Header = () => {
   const HeaderArray = [

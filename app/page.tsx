@@ -1,3 +1,5 @@
+import { Roulette } from '@/components/autochange';
+import { ChangeImg } from '@/components/changeimg';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -33,6 +35,17 @@ export default function Home() {
               </Link>
             </Button>
           </div>
+        </div>
+      </section>
+      <section className="grid lg:grid-cols-2 grid-cols-1">
+        <div className="flex items-center justify-center my-5">
+          <h2 className="text-muted-foreground">
+            綺麗にラッピングしてお届けします。
+          </h2>
+          <Roulette />
+        </div>
+        <div className="flex justify-center">
+          <ChangeImg />
         </div>
       </section>
       {/* <section className="mb-10">

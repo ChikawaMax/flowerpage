@@ -2,47 +2,7 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
-
-interface imgObj {
-  name: string;
-}
-
-const images: imgObj[] = [
-  { name: 'blueclock' },
-  { name: 'blueclock3' },
-  { name: 'blueclock4' },
-  { name: 'blueclock2' },
-  { name: 'blue-wreath' },
-  { name: 'white-wreath2' },
-  { name: 'blue-wreath2' },
-  { name: 'pink-wreath' },
-  { name: 'pink-wreath2' },
-  { name: 'pink-wreath3' },
-  { name: 'pinkbag' },
-  { name: 'pinkbin' },
-  { name: 'pinkbin2' },
-  { name: 'pinkbin3' },
-  { name: 'pinkbin4' },
-  { name: 'pinkbin5' },
-  { name: 'pinkclock' },
-  { name: 'pinkclock2' },
-  { name: 'pinkclock3' },
-  { name: 'pinkclock4' },
-  { name: 'pinkclock5' },
-  { name: 'pinkclock6' },
-  { name: 'pinkclock7' },
-  { name: 'pinkclock8' },
-  { name: 'pinkclock9' },
-  { name: 'pinkclock10' },
-  { name: 'red-wreath' },
-  { name: 'red-wreath2' },
-  { name: 'red-wreath3' },
-  { name: 'redbin' },
-  { name: 'redbin2' },
-  { name: 'tera' },
-  { name: 'white-bin' },
-  { name: 'white-wreath3' },
-];
+import { images } from '../models/imgObj';
 
 export default function Portfolio() {
   const [selectedImage, setSelectedImage] = useState<string>('');

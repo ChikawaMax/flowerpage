@@ -17,7 +17,7 @@ export const ChangeImg = () => {
       <CarouselContent>
         {images.map((image) => {
           return (
-            <CarouselItem>
+            <CarouselItem key={image.name}>
               <div className="p-1">
                 <Card>
                   <CardContent className="flex aspect-square items-center justify-center">

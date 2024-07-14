@@ -20,10 +20,10 @@ export const Roulette = () => {
   return (
     <Image
       src={`/img/${array[count]}.jpg`}
-      width={350}
-      height={350}
+      width={300}
+      height={300}
       alt="Change Image"
-      className="aspect-square overflow-hidden rounded-xl object-cover"
+      className="aspect-square overflow-hidden rounded-xl object-cover border border-black"
     />
   );
 };

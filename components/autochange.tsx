@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 export const Roulette = () => {
-  const [array, setArray] = useState(['wrapping', 'wrapping2']);
+  const array: string[] = ['wrapping', 'wrapping2'];
   const [count, setCount] = useState(0);
 
   useEffect(() => {

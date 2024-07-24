@@ -18,20 +18,22 @@ export const Header = () => {
       //   background: 'url(/img/blueclock2.jpg) no-repeat center center',
       //   backgroundSize: 'cover',
       // }}
-      className="flex h-20 items-center px-4 md:px-6 justify-between bg-[#ffe6fb]"
+      className="flex h-20 items-center px-4 md:px-6 bg-[#ffe6fb] text-xs sm:text-base"
     >
-      <FlowerIcon />
-      <span className="ml-3">Cattleya＊夜桜</span>
-      <div className="flex-auto flex items-center justify-center">
+      <div className="flex items-center gap-2 w-0">
+        <FlowerIcon />
+        <span className="whitespace-nowrap">Cattleya＊夜桜</span>
+      </div>
+      <div className="flex-auto flex items-center justify-end sm:justify-center">
         <NavigationMenu>
-          <NavigationMenuList className="gap-5">
+          <NavigationMenuList className="gap-1 sm:gap-5">
             {HeaderArray.map((Header) => {
               return (
                 <NavigationMenuLink asChild key={Header.title}>
                   <Link
                     href={Header.link}
                     prefetch={false}
-                    className="font-bold hover:border-b text-sm"
+                    className="font-bold hover:border-b"
                   >
                     {Header.title}
                   </Link>
@@ -41,7 +43,6 @@ export const Header = () => {
           </NavigationMenuList>
         </NavigationMenu>
       </div>
-      <div className="w-16"></div>
     </header>
   );
 };

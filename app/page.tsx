@@ -37,34 +37,17 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="grid lg:grid-cols-2 grid-cols-1 items-center">
+      <section className="grid lg:grid-cols-2 grid-cols-1 items-center mb-6">
         <div className="flex items-center justify-center my-5">
           <h2 className="text-muted-foreground">
             綺麗にラッピングしてお届けします。
           </h2>
           <Roulette />
         </div>
-        <div className="flex justify-center">
+        <div className="flex justify-center px-12">
           <ChangeImg />
         </div>
       </section>
-      {/* <section className="mb-10">
-        <div className="w-[30rem] m-auto">
-          <Image
-            src="/img/wrapping.jpg"
-            width={400}
-            height={400}
-            alt="Preserved Flower"
-          />
-          <Image
-            src="/img/wrapping2.jpg"
-            width={400}
-            height={400}
-            alt="Preserved Flower"
-            className="-mt-16 ml-60"
-          />
-        </div>
-      </section> */}
     </div>
   );
 }

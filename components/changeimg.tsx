@@ -13,7 +13,7 @@ import { images } from '@/app/models/imgObj';
 
 export const ChangeImg = () => {
   return (
-    <Carousel className="w-full max-w-xs">
+    <Carousel className="w-full max-w-xs mx-3">
       <CarouselContent>
         {images.map((image) => {
           return (
@@ -23,8 +23,8 @@ export const ChangeImg = () => {
                   <CardContent className="flex aspect-square items-center justify-center">
                     <Image
                       src={`/img/${image.name}.jpg`}
-                      width={1000}
-                      height={1000}
+                      width={500}
+                      height={500}
                       alt="Preserved Flower"
                       className="aspect-square overflow-hidden rounded-xl object-cover"
                     />

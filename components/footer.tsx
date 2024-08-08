@@ -1,11 +1,20 @@
+'use client';
+
 import Link from 'next/link';
 import { FlowerIcon } from './icon/flowerIcon';
 import { InstagramIcon } from './icon/InstagramIcon';
+import { motion } from 'framer-motion';
 
 export default function Footer() {
   return (
     <footer className="bg-[#ffe6fb] py-8 px-4 sm:px-6 lg:px-8">
-      <div className="container mx-auto flex flex-col items-center justify-between sm:flex-row">
+      <motion.div
+        initial={{ y: 40, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 2 }}
+        className="container mx-auto flex flex-col items-center justify-between sm:flex-row"
+      >
         <div className="flex items-center">
           <FlowerIcon />
         </div>
@@ -19,7 +28,7 @@ export default function Footer() {
             <InstagramIcon className="h-6 w-6" />
           </Link>
         </div>
-      </div>
+      </motion.div>
     </footer>
   );
 }

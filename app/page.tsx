@@ -1,8 +1,10 @@
+'use client';
+
 import { Roulette } from '@/components/autochange';
 import { ChangeImg } from '@/components/changeimg';
-import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 export default function Home() {
   return (
@@ -17,9 +19,19 @@ export default function Home() {
             className="mx-auto aspect-square overflow-hidden rounded-xl object-cover"
           />
           <div className="space-y-4">
-            <h1 className="text-3xl tracking-tighter sm:text-4xl md:text-5xl">
+            <motion.h1
+              initial={{ scale: 1, rotate: 0 }}
+              animate={{
+                scale: [1, 1.2, 1],
+              }}
+              transition={{
+                duration: 2,
+                ease: 'easeInOut',
+              }}
+              className="text-3xl tracking-tighter sm:text-4xl md:text-5xl"
+            >
               Cattleya＊夜桜
-            </h1>
+            </motion.h1>
             <p className="text-muted-foreground md:text-xl">
               植物雑貨クリエイターの夜桜と申します。
               <br />
@@ -29,11 +41,13 @@ export default function Home() {
               <br />
               作品を通して素敵な時間を過ごして貰えればとても嬉しいです。
             </p>
-            <Button>
-              <Link href="/portfolio" className="px-5">
-                作品集
-              </Link>
-            </Button>
+            <motion.button
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+              className="bg-primary hover:bg-primary/90  rounded-md px-6 py-3"
+            >
+              <Link href="/portfolio">作品集</Link>
+            </motion.button>
           </div>
         </div>
       </section>

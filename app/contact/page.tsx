@@ -17,6 +17,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Textarea } from '@/components/ui/textarea';
 import { init, send } from '@emailjs/browser';
 import { Toaster, toast } from 'react-hot-toast';
+import { motion } from 'framer-motion';
 
 const formShema = z.object({
   name: z.string().min(2, { message: '2文字で入力してください' }).max(50),
@@ -78,9 +79,24 @@ const Contact = () => {
     <div className="container flex items-center py-5">
       <Toaster />
       <div className="lg:w-[60%] w-full mx-auto">
-        <h2 className="text-[40px] font-bold mb-[30px]">お問い合わせ</h2>
+        <motion.h2
+          className="text-[40px] font-bold mb-[30px]"
+          initial={{ x: -40, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 2 }}
+        >
+          お問い合わせ
+        </motion.h2>
         <Form {...form}>
-          <form className="space-y-8" onSubmit={form.handleSubmit(onSubmit)}>
+          <motion.form
+            className="space-y-8"
+            onSubmit={form.handleSubmit(onSubmit)}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 2 }}
+          >
             <FormField
               control={form.control}
               name="name"
@@ -133,8 +149,15 @@ const Contact = () => {
                 </FormItem>
               )}
             />
-            <Button disabled={isSending}>送信</Button>
-          </form>
+            <motion.button
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+              className="bg-primary hover:bg-primary/90  rounded-md px-6 py-3"
+              disabled={isSending}
+            >
+              送信
+            </motion.button>
+          </motion.form>
         </Form>
       </div>
     </div>

@@ -11,7 +11,6 @@ import {
 } from '@/components/ui/form';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Textarea } from '@/components/ui/textarea';
@@ -20,9 +19,15 @@ import { Toaster, toast } from 'react-hot-toast';
 import { motion } from 'framer-motion';
 
 const formShema = z.object({
-  name: z.string().min(2, { message: '2文字で入力してください' }).max(50),
+  name: z
+    .string()
+    .min(2, { message: '2文字で入力してください' })
+    .max(15, { message: '15文字以内で入力してください' }),
   email: z.string().email({ message: 'メールアドレスの形式ではありません' }),
-  content: z.string(),
+  content: z
+    .string()
+    .min(2, { message: '2文字で入力してください' })
+    .max(200, { message: '200文字以内で入力してください' }),
 });
 
 type formType = z.infer<typeof formShema>;

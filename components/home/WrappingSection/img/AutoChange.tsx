@@ -1,9 +1,7 @@
-'use client';
-
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
-export const Roulette = () => {
+export const AutoChange = () => {
   const array: string[] = ['wrapping', 'wrapping2'];
   const [count, setCount] = useState(0);
 

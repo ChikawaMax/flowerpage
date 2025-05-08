@@ -11,28 +11,15 @@ import {
 } from '@/components/ui/form';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { Input } from '@/components/ui/input';
-import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Textarea } from '@/components/ui/textarea';
-import { init, send } from '@emailjs/browser';
-import { Toaster, toast } from 'react-hot-toast';
 import { motion } from 'framer-motion';
-
-const formShema = z.object({
-  name: z
-    .string()
-    .min(2, { message: '2文字で入力してください' })
-    .max(15, { message: '15文字以内で入力してください' }),
-  email: z.string().email({ message: 'メールアドレスの形式ではありません' }),
-  content: z
-    .string()
-    .min(2, { message: '2文字で入力してください' })
-    .max(200, { message: '200文字以内で入力してください' }),
-});
-
-type formType = z.infer<typeof formShema>;
+import { formShema, formType } from '@/lib/contact/zod';
+import { useStore } from '@/lib/contact/store';
+import { useRouter } from 'next/navigation';
 
 const Contact = () => {
+  //入力タグの無効化のため
   const [isSending, setIsSending] = useState(false);
 
   const form = useForm<formType>({
@@ -45,44 +32,22 @@ const Contact = () => {
     },
   });
 
-  const onSubmit: SubmitHandler<formType> = async (data: formType) => {
-    const userId = process.env.NEXT_PUBLIC_EMAILJS_USER_ID;
-    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+  //グローバル状態管理
+  const formAdd = useStore((state) => state.updateForm);
 
-    const { name, email, content } = data;
+  const router = useRouter();
 
-    if (userId && serviceId && templateId) {
-      setIsSending(true);
-      const loadingToast = toast.loading('送信中...');
+  const onSubmit: SubmitHandler<formType> = (data: formType) => {
+    //入力タグ無効化
+    setIsSending(true);
+    //グローバル状態管理に入力データ格納
+    formAdd(data);
 
-      //emailjsを初期化する
-      init(userId);
-
-      //送信するデータを定義する
-      const params = {
-        name: name,
-        email: email,
-        content: content,
-      };
-
-      try {
-        //送信する
-        await send(serviceId, templateId, params);
-        toast.success('送信が成功しました。');
-      } catch {
-        toast.error('送信に失敗しました。');
-      } finally {
-        form.reset();
-        toast.dismiss(loadingToast);
-        setIsSending(false);
-      }
-    }
+    router.push('/confirmation');
   };
 
   return (
     <div className="container flex items-center py-5">
-      <Toaster />
       <div className="lg:w-[60%] w-full mx-auto">
         <motion.h2
           className="text-[40px] font-bold mb-[30px]"
@@ -160,7 +125,7 @@ const Contact = () => {
               className="bg-primary hover:bg-primary/90  rounded-md px-6 py-3"
               disabled={isSending}
             >
-              送信
+              確認
             </motion.button>
           </motion.form>
         </Form>

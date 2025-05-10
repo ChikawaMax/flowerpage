@@ -1,7 +1,7 @@
 export default function Loading() {
   return (
     <div className="my-10 flex items-center justify-center">
-      確認画面読み込み中...
+      お問い合わせフォーム読み込み中...
     </div>
   );
 }

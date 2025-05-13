@@ -4,16 +4,22 @@ import { motion } from 'framer-motion';
 import { useStore } from '@/lib/contact/store';
 import { useRouter } from 'next/navigation';
 import { init, send } from '@emailjs/browser';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Confirmation() {
   //入力タグ無効化のため
   const [isSending, setIsSending] = useState(false);
+  const router = useRouter();
 
   // グローバル状態管理
   const form = useStore((state) => state.form);
 
-  const router = useRouter();
+  //nullの場合、contactに遷移
+  useEffect(() => {
+    if (!form) {
+      router.push('/contact');
+    }
+  }, [form, router]);
 
   const handleClick = async () => {
     //入力タグ無効化
@@ -21,7 +27,14 @@ export default function Confirmation() {
     const userId = process.env.NEXT_PUBLIC_EMAILJS_USER_ID;
     const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
     const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-    const { name, email, content } = form;
+
+    // 環境変数が正しく設定されているか確認
+    const { name, email, content } = form || {
+      name: '',
+      email: '',
+      content: '',
+    };
+
     if (userId && serviceId && templateId) {
       //emailjsを初期化する
       init(userId);
@@ -61,9 +74,9 @@ export default function Confirmation() {
           viewport={{ once: true }}
           transition={{ duration: 2 }}
         >
-          <p>名前：{form.name}</p>
-          <p>メールアドレス：{form.email}</p>
-          <p>お問い合わせ内容：{form.content}</p>
+          <p>名前：{form?.name}</p>
+          <p>メールアドレス：{form?.email}</p>
+          <p>お問い合わせ内容：{form?.content}</p>
           <motion.button
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.9 }}

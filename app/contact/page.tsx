@@ -42,7 +42,7 @@ const Contact = () => {
     setIsSending(true);
     //グローバル状態管理に入力データ格納
     formAdd(data);
-
+    //確認画面に遷移
     router.push('/confirmation');
   };
 

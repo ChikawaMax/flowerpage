@@ -2,11 +2,11 @@ import { create } from 'zustand';
 import { formType } from './zod';
 
 interface Store {
-  form: formType;
+  form: formType | null;
   updateForm: (form: formType) => void;
 }
 
 export const useStore = create<Store>((set) => ({
-  form: { name: '', email: '', content: '' },
+  form: null,
   updateForm: (form) => set({ form: form }),
 }));

@@ -21,6 +21,11 @@ export default function Confirmation() {
     }
   }, [form, router]);
 
+  //何も表示しない
+  if (!form) {
+    return null;
+  }
+
   const handleClick = async () => {
     //入力タグ無効化
     setIsSending(true);

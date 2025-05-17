@@ -52,8 +52,10 @@ export default function Confirmation() {
       try {
         //送信する
         await send(serviceId, templateId, params);
+        // 送信できたら送信完了へ遷移
         router.push('/complete');
       } catch {
+        //送信できなかったらエラー画面へ遷移
         router.push('/error');
       }
     }
